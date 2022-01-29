@@ -3,7 +3,8 @@ export interface Product {
     ref_assignto: string,
     id: number,
     name: string,
-    description: string
+    description: string;
+    img_profile: string;
 }
 
 export interface Service {
@@ -19,13 +20,14 @@ export class ProductDM {
     id = 0;
     name = "";
     description = "";
-
+    img_profile = "";
     readFromObj(data: Product): void {
     this.ref_product = data.ref_product;
     this.ref_assignto = data.ref_assignto;
     this.id = data.id;
     this.name = data.name;
     this.description = data.description;
+    this.img_profile = data.img_profile;
     }
 
     clone(): ProductDM {
@@ -35,7 +37,7 @@ export class ProductDM {
         data.id = this.id;
         data.name = this.name;
         data.description = this.description;
-        
+        data.img_profile = this.img_profile;
         return data;
     }
 }

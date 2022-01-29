@@ -10,7 +10,7 @@ import { ProductDetailComponent } from '../product-detail/product-detail.compone
 })
 export class ProductListComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'description'];
+  displayedColumns: string[] = ['image','position', 'name', 'description'];
   productlist: ProductDM[] = [];
   productEdit: ProductDM = new ProductDM()
   isEdit: boolean =  false;
