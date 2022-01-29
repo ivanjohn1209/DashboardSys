@@ -1,0 +1,11 @@
+<mat-card>
+    <mat-card-title class="title">Image Gallery <button class="btn btn-sm btn-primary" (click)="onAdd()">Add</button> <input type="file" class="file" id="attachment" style="display: none;" accept="image/*" (change)="fileSelected($event)"/>
+    </mat-card-title>
+    <mat-card-content>
+      <div  *ngFor="let img of imageList" style="position: relative;display: inline-block;" >
+        <img src="{{img.url}}" style="width: 100px; height: 100px;"/>
+        <div style="position: absolute; right: 0; top: 0; background: #dc3545; padding: 5px; color: white;" (click)="onDelete(img)"><i class="fa fa-trash-o" aria-hidden="true"></i>
+        </div>
+      </div>
+      </mat-card-content>
+  </mat-card>

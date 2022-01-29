@@ -1,0 +1,21 @@
+<form *ngIf="inspection">
+    <div class="form-group mb-3">
+      <label for="inspectionTypeId">Inspection Type</label>
+      <select class="form-control" aria-placeholder="Inspection Type" id="inspectionTypeId" name="inspectionTypeId"  [(ngModel)]="inspection.inspectionTypeId">
+        <option selected disabled hidden value="0">Choose here</option>
+        <option *ngFor="let type of inspectionTypeList$|async" value="{{type.id}}">{{type.inspectionName}}</option>
+      </select>
+    </div>
+    <div class="form-group mb-3">
+        <label for="status">Status</label>
+        <select class="form-control" aria-placeholder="Inspection Type" id="status" name="status" [(ngModel)]="inspection.status">
+            <option selected disabled hidden value="">Choose here</option>
+            <option *ngFor="let status of statusList$|async" value="{{status.statusOption}}">{{status.statusOption}}</option>
+        </select>
+      </div>
+    <div class="form-group mb-3">
+      <label for="comments">Comments</label>
+      <textarea class="form-control" id="comments" rows="3" name="comments" [(ngModel)]="inspection.comments"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+  </form>

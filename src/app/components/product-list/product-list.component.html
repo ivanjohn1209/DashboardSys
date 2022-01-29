@@ -1,0 +1,37 @@
+<div *ngIf="!isEdit">
+  <mat-toolbar>    
+    <h5>Product List</h5>
+    <button type="button" class="btn btn-secondary float-end m-2" (click)="onAdd()">
+        Add
+      </button>
+</mat-toolbar>
+<table mat-table [dataSource]="productlist" class="mat-elevation-z1">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onItemClick(row)"></tr>
+  </table>
+</div>
+<div *ngIf="isEdit">
+  <product-detail (onCancel)="onCancel()" (afterSave)="afterSave($event)" (afterDelete)="afterDelete()"></product-detail>
+</div>
