@@ -29,6 +29,10 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ServiceDetailComponent } from './components/service-detail/service-detail.component';
 import { ImageGalleryComponent } from './components/image-gallery/image-gallery.component';
+import { PriceTableComponent } from './components/price-table/price-table.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { PriceDetailComponent } from './components/price-detail/price-detail.component';
+import { SettingsComponent } from './components/settings/settings.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +50,10 @@ import { ImageGalleryComponent } from './components/image-gallery/image-gallery.
     ProductDetailComponent,
     ServiceDetailComponent,
     ImageGalleryComponent,
+    PriceTableComponent,
+    ModalComponent,
+    PriceDetailComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,

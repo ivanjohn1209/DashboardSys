@@ -1,3 +1,5 @@
+import { IsEmpty } from "../utility/ToolFtc";
+
 export interface Product {
     ref_product: string,
     ref_assignto: string,
@@ -27,7 +29,7 @@ export class ProductDM {
     this.id = data.id;
     this.name = data.name;
     this.description = data.description;
-    this.img_profile = data.img_profile;
+    this.img_profile = IsEmpty(data.img_profile) ? "/assets/img/default-img.png" : data.img_profile ;
     }
 
     clone(): ProductDM {

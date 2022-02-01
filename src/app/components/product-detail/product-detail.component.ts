@@ -3,6 +3,7 @@ import { Product, ProductDM } from 'src/app/interface/product-services.model';
 import { ProductServicesService } from 'src/app/service/product-services.service';
 import { IsEmpty } from 'src/app/utility/ToolFtc';
 import { ImageGalleryComponent } from '../image-gallery/image-gallery.component';
+import { PriceTableComponent } from '../price-table/price-table.component';
 
 @Component({
   selector: 'product-detail',
@@ -14,6 +15,8 @@ export class ProductDetailComponent implements OnInit {
   @Output() afterSave: EventEmitter<any> = new EventEmitter();
   @Output() afterDelete: EventEmitter<any> = new EventEmitter();
   @ViewChild(ImageGalleryComponent) imageGallery!: ImageGalleryComponent;
+  @ViewChild(PriceTableComponent) priceTable!: PriceTableComponent;
+
   IsEmpty = IsEmpty
   productData: Product = new ProductDM()
 
@@ -34,8 +37,10 @@ export class ProductDetailComponent implements OnInit {
   setData(data: Product): void {
     this.productData = data;
     setTimeout(() => {
-      if(!IsEmpty(data.ref_product))
-      this.imageGallery.setRefs(data.ref_product)  
+      if(!IsEmpty(data.ref_product)){
+        this.imageGallery.setRefs(data.ref_product)  
+        this.priceTable.setRefs(data.ref_product)
+      }
     }, 100);
   }
   

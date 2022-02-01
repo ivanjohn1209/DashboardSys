@@ -1,0 +1,10 @@
+.modal{
+    display: block !important;
+    opacity: 1;
+    z-index: 1072;
+}
+.modal-dialog {
+    max-width: 500px;
+    margin: 1.75rem auto;
+    transform: none !important;
+}

@@ -1,0 +1,39 @@
+<mat-card>
+    <mat-card-title class="title">Price Table <button class="btn btn-sm btn-primary" (click)="onAdd()">Add</button> 
+    </mat-card-title>
+    <mat-card-content>
+        <mat-table #table [dataSource]="priceList">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+              <mat-header-cell *matHeaderCellDef style="max-width: 100px;"> No. </mat-header-cell>
+              <mat-cell *matCellDef="let element" style="max-width: 100px;"> {{element.id}} </mat-cell>
+            </ng-container>
+        
+            <!-- price Column -->
+            <ng-container matColumnDef="price">
+              <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+            </ng-container>
+        
+            <!-- currency Column -->
+            <ng-container matColumnDef="currency">
+              <mat-header-cell *matHeaderCellDef> Currency </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.currency}} </mat-cell>
+            </ng-container>
+        
+         <!-- action Column -->
+         <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef style="max-width: 100px;"> Action </mat-header-cell>
+            <mat-cell *matCellDef="let element" style="max-width: 100px;"> 
+                <button type="button" class="btn btn-sm btn-danger float-end" (click)="onDelete(element)"><i aria-hidden="true" class="fa fa-trash-o"></i></button>
+            </mat-cell>
+          </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+    </mat-card-content>
+  </mat-card>
+<modal title="Edit Price" (onSave)="onSavePrice()">
+  <price-detail (afterSave)="afterSaved()"></price-detail>
+</modal>
